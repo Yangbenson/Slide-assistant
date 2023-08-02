@@ -3,7 +3,7 @@ import datetime
 from Slide_data import slide_contents
 
 
-openai.api_key = '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'
+# openai.api_key = ''
 
 
 df_slide = slide_contents("PP_samples/sample.pptx")
