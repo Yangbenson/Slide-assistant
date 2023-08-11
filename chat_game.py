@@ -47,20 +47,25 @@ def chatbot():
                 else:
                     active = False
                 color = color_active if active else color_inactive
+
             if event.type == pygame.KEYDOWN:
                 if active:
+
                     if event.key == pygame.K_RETURN:
                         # 評分演講稿
                         action = random.choice([0, 1]) # 這裡你可以加入你的代理人邏輯
                         prompt = env.get_new_prompt(action)
                         prompt += f"\nUser's Speech: {text}"
+
                         # 使用OpenAI的GPT-3.5來評分
                         response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=50)
                         score = env.get_score_from_judges(response.choices[0].text)
                         print(f"Speech Score: {score}")
                         text = ''
+
                     elif event.key == pygame.K_BACKSPACE:
                         text = text[:-1]
+
                     else:
                         text += event.unicode
 

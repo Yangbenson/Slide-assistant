@@ -41,5 +41,5 @@ def slide_contents(file_path):
 
     return df
 
-# slide_contents("PP_samples/sample.pptx")
-# print(slide_contents("PP_samples/sample.pptx"))
+slide_contents("PP_samples/5p_sample.pptx")
+print(slide_contents("PP_samples/5P_sample.pptx"))
