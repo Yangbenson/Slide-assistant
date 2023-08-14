@@ -9,7 +9,7 @@ from sys import platform as sys_pf
 from Slide_data import slide_contents
 
 # 設置你的OpenAI API密鑰
-openai.api_key = ''
+openai.api_key = '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'
 
 # slide_contents('SummerProject/PP_samples/5p_sample.pptx')
 
