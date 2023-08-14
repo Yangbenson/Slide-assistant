@@ -9,20 +9,9 @@ from sys import platform as sys_pf
 from Slide_data import slide_contents
 
 # 設置你的OpenAI API密鑰
-openai.api_key = ''
+openai.api_key = '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'
 
 # slide_contents('SummerProject/PP_samples/5p_sample.pptx')
-
-# 初始化Pygame
-pygame.init() # 初始化所有導入的pygame模塊
-
-window_width, window_height = (800, 600)
-
-screen = pygame.display.set_mode((window_width, window_height), pygame.RESIZABLE) # 創建800x600的可調整顯示窗口
-pygame.display.set_caption("ChatBot") # 設置窗口標題為"ChatBot"
-font = pygame.font.Font(None, 24) # 定義36點的字體
-button_font = pygame.font.Font(None, 36)
-
 
 def select_file():
 
@@ -195,6 +184,9 @@ def score_speech4test(speech):
 
     return data
 
+
+
+
 # ---------pygame---------
 def render_text(text, font, color, max_width):
     words = text.split(' ')
@@ -237,6 +229,15 @@ def set_input_box(w_width,w_height):
 # PPT按鈕
 # load_ppt_button = pygame.Rect(50, 500, 200, 50)
 
+# 初始化Pygame
+pygame.init() # 初始化所有導入的pygame模塊
+
+window_width, window_height = (800, 600)
+
+screen = pygame.display.set_mode((window_width, window_height), pygame.RESIZABLE) # 創建800x600的可調整顯示窗口
+pygame.display.set_caption("ChatBot") # 設置窗口標題為"ChatBot"
+font = pygame.font.Font(None, 24) # 定義36點的字體
+button_font = pygame.font.Font(None, 36)
 
 # 定義分数框的位置和大小
 load_ppt_width = 200
@@ -357,9 +358,6 @@ while True:
 
                 else:
                     input_box_text += event.unicode  # 否則，將按鍵添加到文本
-
-
-
 
     pygame.display.flip() # 更新整個顯示窗口
     clock.tick(30) # 控制遊戲迴圈速度，使每秒不超過30次迴圈

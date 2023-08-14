@@ -32,8 +32,10 @@ def slide_contents(file_path):
 
             # Check if the placeholder is content
             elif placeholder.placeholder_format.idx == 1:
-                contents.append(placeholder.text)
-                # print(f"  Content: {placeholder.text}")
+                page_contents = placeholder.text.split(',')
+                for content in page_contents:
+                    contents.append(content)
+
 
         slide = {"page_num": i+1, "titles": titles, "contents": contents}
 
@@ -41,5 +43,5 @@ def slide_contents(file_path):
 
     return df
 
-slide_contents("PP_samples/5p_sample.pptx")
-print(slide_contents("PP_samples/5P_sample.pptx"))
+# slide_contents("PP_samples/5p_sample.pptx")
+# print(slide_contents("PP_samples/5P_sample.pptx"))
