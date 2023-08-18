@@ -264,6 +264,11 @@ active = False # 設置輸入框為非活動
 input_box_text = '' # 初始化輸入文本
 clock = pygame.time.Clock() # 用於控制遊戲迴圈的速度
 
+# 打字時的光標
+cursor_color = pygame.Color('black')
+clock = pygame.time.Clock()
+cursor_timer = 0
+cursor_visible = True
 
 game_state = "welcome"
 
@@ -358,6 +363,16 @@ while True:
 
                 else:
                     input_box_text += event.unicode  # 否則，將按鍵添加到文本
+            # 光标逻辑
+    cursor_timer += clock.tick(60)  # 每秒60帧
+    if cursor_timer > 500:  # 每500ms切换一次光标的可见性
+        cursor_timer %= 500
+        cursor_visible = not cursor_visible
+
+    if cursor_visible:
+        pygame.draw.line(screen, cursor_color,
+                         (input_box.x + txt_surface.get_width() + 5, input_box.y + 5),
+                         (input_box.x + txt_surface.get_width() + 5, input_box.y + input_box.h - 5))
 
     pygame.display.flip() # 更新整個顯示窗口
-    clock.tick(30) # 控制遊戲迴圈速度，使每秒不超過30次迴圈
+    clock.tick(60) # 控制遊戲迴圈速度，使每秒不超過30次迴圈
